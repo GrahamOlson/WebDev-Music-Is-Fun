@@ -2,9 +2,11 @@ function ItunesService() {
 
   //DO NOT MODIFY
   this.getMusicByArtist = function (artist) {
-    var url = 'https://itunes.apple.com/search?term=' + artist + "&callback=?"
+    var url1 = 'https://itunes.apple.com/search?term=' + artist + "&callback=?"
+    let url2 = 'https://bcw-getter.herokuapp.com/?url='
+    let apiUrl = url1 + encodeURIComponent(url2)
     //Casts each object to 
-    return $.getJSON(url).then(function (response) {
+    return $.getJSON(url1).then(function (response) {
       var songList = response.results.map(song => {
         return {
           title: song.trackName,

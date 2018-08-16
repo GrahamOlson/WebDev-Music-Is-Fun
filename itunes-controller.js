@@ -5,10 +5,28 @@ function ItunesController() {
 
   function drawSongs(results) {
     console.log(results)
-    //YOUR CODING STARTS HERE
-
-
-
+    let template = ''
+    for (let i = 0; i < results.length; i++) {
+      const song = results[i];
+      //YOUR CODING STARTS HERE
+      template += `
+      <div class="col-6">  
+      <ul style="list-style-type:none" id="song-list">
+        <li class="font-weight-bold title">${song.title}</li>
+        <li><img src=${song.albumArt}></li>
+        <li>${song.artist}</li>
+        <li>${song.collection}</li>
+        <li>${song.price}</li>
+        <audio controls>
+            <source src="${song.preview}" type="audio/ogg">
+            <source src="${song.preview}" type="audio/mpeg">  
+        <li>${song.preview}</li>
+        </audio>
+      </ul>
+      </div>
+    `
+    }
+    document.getElementById('songs').innerHTML = template
   }
 
   //PUBLIC
