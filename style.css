@@ -1,6 +1,15 @@
 body{
-    background:linear-gradient(to right,rgb(216, 233, 248), rgb(165, 214, 165))
+    background:linear-gradient(to right,rgb(0, 0, 0), rgb(44, 44, 70))
 }
-.title{
+.song-title{
     color: #81D8D0;
+}
+.song-collection{
+    color: red;
+}
+.song-artist{
+    color: blue;
+}
+.song-price{
+    color: yellow;
 }
