@@ -1,3 +1,6 @@
+body{
+    background:linear-gradient(to right,rgb(216, 233, 248), rgb(165, 214, 165))
+}
 .title{
-    color: white;
+    color: #81D8D0;
 }
