@@ -12,8 +12,8 @@ function ItunesController() {
       template += `
       <div class="col-6">  
       <ul style="list-style-type:none" id="song-list">
-        <li class="font-weight-bold song-title"> ${song.title}</li>
-        <li><button onclick="playAudio()"type="button"><img src=${song.albumArt}></button></li>
+        <li class="font-weight-bold song-title">${song.title}</li>
+        <li><button onclick="app.controllers.itunesCtrl.playAudio('${song.preview}')" type="button"><img src="${song.albumArt}"></button></li>
         <li class="song-artist">${song.artist}</li>
         <li class="song-collection">${song.collection}</li>
         <li class="song-price">$${song.price}</li>
@@ -23,6 +23,14 @@ function ItunesController() {
     `
     }
     document.getElementById('songs').innerHTML = template
+  }
+
+  this.playAudio = function (preview) {
+    const audio = document.getElementById('audio-player');
+    const source = document.getElementById('audio-source');
+    source.setAttribute('src', preview);
+    audio.load();
+    audio.play();
   }
 
   //PUBLIC
@@ -39,21 +47,4 @@ function ItunesController() {
     })
   }
 
-  this.playAudio = function (results) {
-    let template = '';
-    for (let i = 0; i < results.length; i++) {
-      const song = results[i];
-      template += `
-      <audio controls>
-            <source src="${song.preview}" type="audio/ogg">
-            <source src="${song.preview}" type="audio/mpeg">  
-      </audio>
-      `
-      document.getElementById('audio-player').innerHTML = template
-    }
-
-  }
-
-
 }
-
